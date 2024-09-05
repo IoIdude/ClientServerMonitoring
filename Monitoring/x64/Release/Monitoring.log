@@ -1,0 +1,14 @@
+﻿  activity_monitor.cpp
+  main.cpp
+  network_utils.cpp
+C:\Users\gleb2\source\repos\Monitoring\Monitoring\network_utils.cpp(50,45): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  screenshot.cpp
+C:\Users\gleb2\source\repos\Monitoring\Monitoring\screenshot.cpp(43,76): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  startup.cpp
+C:\Users\gleb2\source\repos\Monitoring\Monitoring\startup.cpp(23,26): warning C4267: 'initializing': conversion from 'size_t' to 'DWORD', possible loss of data
+  system_info.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 294 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Monitoring.vcxproj -> C:\Users\gleb2\source\repos\Monitoring\x64\Release\Monitoring.exe
