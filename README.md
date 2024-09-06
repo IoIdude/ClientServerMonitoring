@@ -4,7 +4,7 @@
 
 This is a simple application to show the current work activity of all employees in an organization.
 
-## Client (Windows)
+## Client (Windows) - main branch
 
 - **Language:** C/C++
 - **Features:**
@@ -12,13 +12,13 @@ This is a simple application to show the current work activity of all employees 
   - Interacts with the server via the TCP protocol.
   - Does not use third-party libraries like Boost or frameworks like Qt.
 
-## Server
+## Server - server branch
 
 - **Language:** Python (Flask)
 - **Features:**
   - List all connected clients: domain, machine, IP, user.
-  - Show client’s last active time.
-  - Ability to get screenshots from the client’s desktop.
+  - Show clientâ€™s last active time.
+  - Ability to get screenshots from the clientâ€™s desktop.
 
 ## How to Run the Project
 
